@@ -21,14 +21,6 @@ testClass* GetMYNullObject(){
 
 
 int main() {
-    if (testClass* Pobject60 = GetMYTrueObject()){
-        std::cout << "60" << std::endl;
-        Pobject60->someFunc2();
-    }
-    if (testClass* Pobject61 = GetMYNullObject()){
-        std::cout << "61" << std::endl;
-       (*Pobject61).someFunc();
-    }
     if(testClass* testObject0 = getNullPtr(false)){
         std::cout << "0" << std::endl << (*testObject0).someFunc() << endl;//NOT a Result
     }
@@ -37,6 +29,26 @@ int main() {
     }
     if(testClass* testObject2 = getNullPtr(true)){
         std::cout << "2" << std::endl << (*testObject2).someFunc();// NOT a Result
+    }
+    if (testClass* testObject60 = GetMYTrueObject()){
+        std::cout << "60" << std::endl;
+        testObject60->someFunc2();
+    }
+    if (testClass* testObject61 = GetMYNullObject()){
+        std::cout << "61" << std::endl;
+        (*testObject61).someFunc();
+    }
+    if (auto* const testObject70 = GetMYTrueObject()){
+        std::cout << "70" << std::endl;
+        testObject70->someFunc2();
+    }
+    if (auto* const testObject71 = getNullPtr(false)){
+        std::cout << "71" << std::endl;
+        testObject71->someFunc2();
+    }
+    if (auto* const testObject72 = getNullPtr(true)){
+        std::cout << "72" << std::endl;
+        testObject72->someFunc2();
     }
     if(testClass* testObject3 = getNullPtr(true); true){
         std::cout << "3" << std::endl << (*testObject3).someFunc();//RESULT
@@ -57,6 +69,26 @@ int main() {
     testClass* testObject5 = getNullPtr(true);
     if(testObject5){
         std::cout << "5" << std::endl << (*testObject5).someFunc() << endl;// NOT a Result
+    }
+    if (testClass* testObject60 = GetMYTrueObject()){
+        std::cout << "60" << std::endl;
+        testObject60->someFunc2();
+    }
+    if (testClass* testObject61 = GetMYNullObject()){
+        std::cout << "61" << std::endl;
+        (*testObject61).someFunc();
+    }
+    if (auto* const testObject70 = GetMYTrueObject()){
+        std::cout << "70" << std::endl;
+        testObject70->someFunc2();
+    }
+    if (auto* const testObject71 = getNullPtr(false)){
+        std::cout << "71" << std::endl;
+        testObject71->someFunc2();
+    }
+    if (auto* const testObject72 = getNullPtr(true)){
+        std::cout << "72" << std::endl;
+        testObject72->someFunc2();
     }
     return 0;
 }
