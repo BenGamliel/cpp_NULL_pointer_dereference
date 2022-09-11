@@ -10,8 +10,25 @@ testClass * getNullPtr(bool x){
    }
     return &temp;
 }
+testClass* GetMYTrueObject(){
+    testClass* temp = new testClass(3000);
+    return temp;
+}
+testClass* GetMYNullObject(){
+    testClass temp = testClass(3);
+    return nullptr;
+}
+
 
 int main() {
+    if (testClass* Pobject60 = GetMYTrueObject()){
+        std::cout << "60" << std::endl;
+        Pobject60->someFunc2();
+    }
+    if (testClass* Pobject61 = GetMYNullObject()){
+        std::cout << "61" << std::endl;
+       (*Pobject61).someFunc();
+    }
     if(testClass* testObject0 = getNullPtr(false)){
         std::cout << "0" << std::endl << (*testObject0).someFunc() << endl;//NOT a Result
     }
