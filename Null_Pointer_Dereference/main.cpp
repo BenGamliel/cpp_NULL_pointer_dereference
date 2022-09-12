@@ -86,7 +86,7 @@ int main() {
         std::cout << "52" << std::endl;
         testObject52->someFunc2();
     }
-    /*
+
 if(testClass* testObject0 = getNullPtr(false)){
     std::cout << "0" << std::endl << (*testObject0).someFunc() << endl;//NOT a Result
 }
@@ -104,9 +104,9 @@ if (testClass* testObject11 = GetMYNullObject()){
     std::cout << "11" << std::endl;
     (*testObject11).someFunc();
 }
- */
-    /*
-     *     if(testClass* testObject3 = getNullPtr(true); true){
+
+
+      if(testClass* testObject3 = getNullPtr(true); true){
         std::cout << "3" << std::endl << (*testObject3).someFunc();//RESULT
     }
     else{
@@ -149,7 +149,6 @@ if (testClass* testObject11 = GetMYNullObject()){
         std::cout << "62" << std::endl;
         testObject62->someFunc2();
     }
-     */
     return 0;
 }
 
