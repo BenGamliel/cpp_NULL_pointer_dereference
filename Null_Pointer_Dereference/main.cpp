@@ -21,44 +21,45 @@ testClass* GetMYNullObject(){
 
 int main() {
 
-    if (auto* testObject60 = GetMYTrueObject()){ // NOT a result
-        std::cout << "60" << std::endl;
-        testObject60->someFunc2();
-        std::cout << endl;
 
-    }
-    if (auto* testObject61 = getNullPtr(false)){ // NOT a result
-        std::cout << "61" << std::endl;
-        testObject61->someFunc2();
-    }
-    if (auto* testObject62 = getNullPtr(true)){ // NOT a result
-        std::cout << "62" << std::endl;
-        testObject62->someFunc2();
-    }
     std::cout << endl;
-    if (auto* const testObject70 = GetMYTrueObject()){//SAST result
+    if (auto* const testObject70 = GetMYTrueObject()){ //SAST result // FP
         std::cout << "70" << std::endl;
         testObject70->someFunc2();
     }
-    if (auto* const testObject71 = getNullPtr(false)){// FP//SAST result
+    if (auto* const testObject71 = getNullPtr(false)){ //SAST result // FP
         std::cout << "71" << std::endl;
         testObject71->someFunc2();
     }
-    if (auto* const testObject72 = getNullPtr(true)){ // TP//SAST result
+    if (auto* const testObject72 = getNullPtr(true)){ //SAST result // FP
         std::cout << "72" << std::endl;
         testObject72->someFunc2();
     }
+    auto* const testObject90 = GetMYTrueObject();
+    if(testObject90){
+        std::cout << "90" << std::endl;
+        testObject90->someFunc2();
+    }
+    auto* const testObject91 = getNullPtr(false);
+    if(testObject91){
+        std::cout << "91" << std::endl;
+        testObject91->someFunc2();
+    }
+    auto* const testObject92 = getNullPtr(true);
+    if(testObject92){
+        std::cout << "92" << std::endl;
+        testObject92->someFunc2();
+    }
     std::cout << endl;
-
-    if (testClass* const testObject80 = GetMYTrueObject()){//SAST result
+    if (testClass* const testObject80 = GetMYTrueObject()){ //SAST result // FP
         std::cout << "80" << std::endl;
         testObject80->someFunc2();
     }
-    if (testClass* const testObject81 = getNullPtr(false)){//SAST result
+    if (testClass* const testObject81 = getNullPtr(false)){ //SAST result // FP
         std::cout << "81" << std::endl;
         testObject81->someFunc2();
     }
-    if (testClass* const testObject82 = getNullPtr(true)){//SAST result
+    if (testClass* const testObject82 = getNullPtr(true)){ //SAST result // FP
         std::cout << "82" << std::endl;
         testObject82->someFunc2();
     }
@@ -113,7 +114,20 @@ if (testClass* testObject11 = GetMYNullObject()){
         std::cout << "61" << std::endl;
         (*testObject61).someFunc();
     }
+    if (auto* testObject60 = GetMYTrueObject()){ // NOT a result
+        std::cout << "60" << std::endl;
+        testObject60->someFunc2();
+        std::cout << endl;
 
+    }
+    if (auto* testObject61 = getNullPtr(false)){ // NOT a result
+        std::cout << "61" << std::endl;
+        testObject61->someFunc2();
+    }
+    if (auto* testObject62 = getNullPtr(true)){ // NOT a result
+        std::cout << "62" << std::endl;
+        testObject62->someFunc2();
+    }
      */
     return 0;
 }
